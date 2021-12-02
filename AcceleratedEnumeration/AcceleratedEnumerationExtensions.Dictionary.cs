@@ -4,7 +4,7 @@ namespace Bench;
 
 public static partial class AcceleratedEnumerationExtensions
 {
-    public readonly struct DictionaryWrapper<TKey, TValue>
+    public readonly ref struct DictionaryWrapper<TKey, TValue>
         where TKey : notnull
     {
         private readonly IDictionary<TKey, TValue>? _dict;
@@ -17,7 +17,7 @@ public static partial class AcceleratedEnumerationExtensions
         public DictionaryEnumerator<TKey, TValue> GetEnumerator() => new(_dict);
     }
 
-    public struct DictionaryEnumerator<TKey, TValue> : IDisposable
+    public ref struct DictionaryEnumerator<TKey, TValue>
         where TKey : notnull
     {
         private Dictionary<TKey, TValue>.Enumerator _dictEnumerator;

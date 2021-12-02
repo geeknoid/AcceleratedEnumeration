@@ -2,7 +2,7 @@
 
 public static partial class AcceleratedEnumerationExtensions
 {
-    public readonly struct ReadOnlySetWrapper<T>
+    public readonly ref struct ReadOnlySetWrapper<T>
         where T : notnull
     {
         private readonly IReadOnlySet<T>? _set;

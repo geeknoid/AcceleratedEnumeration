@@ -4,7 +4,7 @@ namespace Bench;
 
 public static partial class AcceleratedEnumerationExtensions
 {
-    public readonly struct EnumerableWrapper<T>
+    public readonly ref struct EnumerableWrapper<T>
     {
         private readonly IEnumerable<T>? _enumerable;
 
@@ -16,7 +16,7 @@ public static partial class AcceleratedEnumerationExtensions
         public EnumerableEnumerator<T> GetEnumerator() => new(_enumerable);
     }
 
-    public struct EnumerableEnumerator<T> : IDisposable
+    public ref struct EnumerableEnumerator<T>
     {
         private readonly IEnumerator<T>? _delegatedEnumerator;
         private readonly IReadOnlyList<T>? _readonlyList;

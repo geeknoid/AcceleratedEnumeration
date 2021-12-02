@@ -2,7 +2,7 @@
 
 public static partial class AcceleratedEnumerationExtensions
 {
-    public readonly struct ReadOnlyDictionaryWrapper<TKey, TValue>
+    public readonly ref struct ReadOnlyDictionaryWrapper<TKey, TValue>
         where TKey : notnull
     {
         private readonly IReadOnlyDictionary<TKey, TValue>? _dict;

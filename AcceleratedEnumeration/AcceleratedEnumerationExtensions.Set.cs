@@ -4,7 +4,7 @@ namespace Bench;
 
 public static partial class AcceleratedEnumerationExtensions
 {
-    public readonly struct SetWrapper<T>
+    public readonly ref struct SetWrapper<T>
         where T : notnull
     {
         private readonly ISet<T>? _set;
@@ -17,7 +17,7 @@ public static partial class AcceleratedEnumerationExtensions
         public SetEnumerator<T> GetEnumerator() => new(_set);
     }
 
-    public struct SetEnumerator<T> : IDisposable
+    public ref struct SetEnumerator<T>
         where T : notnull
     {
         private HashSet<T>.Enumerator _setEnumerator;
