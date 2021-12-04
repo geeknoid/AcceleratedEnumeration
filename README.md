@@ -47,79 +47,78 @@ The benchmarks are grouped as follows:
 
 The number in the names indicating the number of iterations in the benchmark.
 
-
 ```
-|                               Method |       Mean |     Error |     StdDev |     Median |  Gen 0 | Allocated |
-|------------------------------------- |-----------:|----------:|-----------:|-----------:|-------:|----------:|
-|                 IEnumOnStack0_Normal |   7.835 ns | 0.0487 ns |  0.0713 ns |   7.818 ns | 0.0064 |      40 B |
-|            IEnumOnStack0_Accelerated |  21.756 ns | 0.1273 ns |  0.1866 ns |  21.732 ns |      - |         - |
-|                IEnumOnStack10_Normal |  51.225 ns | 0.1772 ns |  0.2484 ns |  51.255 ns | 0.0063 |      40 B |
-|           IEnumOnStack10_Accelerated | 104.523 ns | 0.6646 ns |  0.9531 ns | 104.198 ns | 0.0063 |      40 B |
-|               IEnumOnStack100_Normal | 441.694 ns | 1.5558 ns |  2.1810 ns | 441.157 ns | 0.0062 |      40 B |
-|          IEnumOnStack100_Accelerated | 673.767 ns | 7.4510 ns | 11.1523 ns | 669.868 ns | 0.0057 |      40 B |
+|                               Method |       Mean |     Error |    StdDev |  Gen 0 | Allocated |
+|------------------------------------- |-----------:|----------:|----------:|-------:|----------:|
+|                 IEnumOnStack0_Normal |  11.916 ns | 0.4977 ns | 0.7295 ns | 0.0064 |      40 B |
+|            IEnumOnStack0_Accelerated |  19.812 ns | 0.1493 ns | 0.2141 ns |      - |         - |
+|                IEnumOnStack10_Normal |  82.047 ns | 0.3545 ns | 0.5196 ns | 0.0063 |      40 B |
+|           IEnumOnStack10_Accelerated | 109.586 ns | 0.3807 ns | 0.5580 ns | 0.0063 |      40 B |
+|               IEnumOnStack100_Normal | 633.722 ns | 4.1179 ns | 5.9057 ns | 0.0057 |      40 B |
+|          IEnumOnStack100_Accelerated | 753.168 ns | 4.9308 ns | 7.0716 ns | 0.0057 |      40 B |
 
-|                 IEnumOnArray0_Normal |   5.042 ns | 0.0149 ns |  0.0209 ns |   5.042 ns |      - |         - |
-|            IEnumOnArray0_Accelerated |   8.718 ns | 0.0495 ns |  0.0710 ns |   8.682 ns |      - |         - |
-|                IEnumOnArray10_Normal |  43.264 ns | 0.1577 ns |  0.2261 ns |  43.216 ns | 0.0051 |      32 B |
-|           IEnumOnArray10_Accelerated |  21.593 ns | 0.3019 ns |  0.4426 ns |  21.377 ns |      - |         - |
-|               IEnumOnArray100_Normal | 361.073 ns | 2.7242 ns |  3.7289 ns | 360.711 ns | 0.0048 |      32 B |
-|          IEnumOnArray100_Accelerated | 159.083 ns | 0.4205 ns |  0.6294 ns | 159.296 ns |      - |         - |
+|                 IEnumOnArray0_Normal |   4.918 ns | 0.0349 ns | 0.0512 ns |      - |         - |
+|            IEnumOnArray0_Accelerated |   8.734 ns | 0.0555 ns | 0.0831 ns |      - |         - |
+|                IEnumOnArray10_Normal |  40.159 ns | 0.3294 ns | 0.4618 ns | 0.0051 |      32 B |
+|           IEnumOnArray10_Accelerated |  21.725 ns | 0.1987 ns | 0.2912 ns |      - |         - |
+|               IEnumOnArray100_Normal | 334.424 ns | 2.3286 ns | 3.3396 ns | 0.0048 |      32 B |
+|          IEnumOnArray100_Accelerated | 163.400 ns | 0.9046 ns | 1.2974 ns |      - |         - |
 
-|                  IEnumOnList0_Normal |   7.832 ns | 0.0989 ns |  0.1450 ns |   7.786 ns | 0.0064 |      40 B |
-|             IEnumOnList0_Accelerated |  12.086 ns | 0.0575 ns |  0.0843 ns |  12.061 ns |      - |         - |
-|                 IEnumOnList10_Normal |  50.759 ns | 0.8968 ns |  1.3145 ns |  50.214 ns | 0.0063 |      40 B |
-|            IEnumOnList10_Accelerated |  34.795 ns | 0.1183 ns |  0.1697 ns |  34.731 ns |      - |         - |
-|                IEnumOnList100_Normal | 441.623 ns | 2.6154 ns |  3.7509 ns | 440.653 ns | 0.0062 |      40 B |
-|           IEnumOnList100_Accelerated | 250.984 ns | 1.5284 ns |  2.2876 ns | 250.508 ns |      - |         - |
+|                  IEnumOnList0_Normal |  11.756 ns | 0.0600 ns | 0.0861 ns | 0.0064 |      40 B |
+|             IEnumOnList0_Accelerated |  11.899 ns | 0.0348 ns | 0.0511 ns |      - |         - |
+|                 IEnumOnList10_Normal |  76.460 ns | 0.2644 ns | 0.3791 ns | 0.0063 |      40 B |
+|            IEnumOnList10_Accelerated |  32.540 ns | 0.2343 ns | 0.3434 ns |      - |         - |
+|                IEnumOnList100_Normal | 530.900 ns | 3.2422 ns | 4.5452 ns | 0.0057 |      40 B |
+|           IEnumOnList100_Accelerated | 231.249 ns | 0.8550 ns | 1.2532 ns |      - |         - |
 
-|                 IListOnArray0_Normal |   5.336 ns | 0.0250 ns |  0.0367 ns |   5.327 ns |      - |         - |
-|            IListOnArray0_Accelerated |   2.245 ns | 0.0194 ns |  0.0284 ns |   2.235 ns |      - |         - |
-|                IListOnArray10_Normal |  42.823 ns | 0.2089 ns |  0.3062 ns |  42.781 ns | 0.0051 |      32 B |
-|           IListOnArray10_Accelerated |  22.436 ns | 0.0965 ns |  0.1415 ns |  22.439 ns |      - |         - |
-|               IListOnArray100_Normal | 355.346 ns | 1.5737 ns |  2.2569 ns | 354.495 ns | 0.0048 |      32 B |
-|          IListOnArray100_Accelerated | 185.222 ns | 6.1391 ns |  8.9986 ns | 178.228 ns |      - |         - |
+|                 IListOnArray0_Normal |   4.861 ns | 0.0149 ns | 0.0214 ns |      - |         - |
+|            IListOnArray0_Accelerated |   2.583 ns | 0.0215 ns | 0.0315 ns |      - |         - |
+|                IListOnArray10_Normal |  39.814 ns | 0.2279 ns | 0.3195 ns | 0.0051 |      32 B |
+|           IListOnArray10_Accelerated |  19.772 ns | 0.1441 ns | 0.2156 ns |      - |         - |
+|               IListOnArray100_Normal | 337.584 ns | 2.6602 ns | 3.9816 ns | 0.0048 |      32 B |
+|          IListOnArray100_Accelerated | 197.713 ns | 0.8613 ns | 1.2624 ns |      - |         - |
 
-|                  IListOnList0_Normal |   8.520 ns | 0.0241 ns |  0.0353 ns |   8.518 ns | 0.0064 |      40 B |
-|             IListOnList0_Accelerated |   1.966 ns | 0.0103 ns |  0.0144 ns |   1.967 ns |      - |         - |
-|                 IListOnList10_Normal |  50.042 ns | 0.2441 ns |  0.3578 ns |  49.970 ns | 0.0063 |      40 B |
-|            IListOnList10_Accelerated |  21.418 ns | 0.0782 ns |  0.1121 ns |  21.396 ns |      - |         - |
-|                IListOnList100_Normal | 438.398 ns | 2.5678 ns |  3.8433 ns | 437.097 ns | 0.0062 |      40 B |
-|           IListOnList100_Accelerated | 198.318 ns | 0.4904 ns |  0.7033 ns | 198.447 ns |      - |         - |
+|                  IListOnList0_Normal |  11.907 ns | 0.1408 ns | 0.2019 ns | 0.0064 |      40 B |
+|             IListOnList0_Accelerated |   2.533 ns | 0.0124 ns | 0.0181 ns |      - |         - |
+|                 IListOnList10_Normal |  75.203 ns | 0.4545 ns | 0.6662 ns | 0.0063 |      40 B |
+|            IListOnList10_Accelerated |  22.010 ns | 0.1926 ns | 0.2763 ns |      - |         - |
+|                IListOnList100_Normal | 530.122 ns | 2.0432 ns | 2.9303 ns | 0.0057 |      40 B |
+|           IListOnList100_Accelerated | 201.067 ns | 1.9784 ns | 2.8999 ns |      - |         - |
 
-|          IReadOnlyListOnList0_Normal |   8.385 ns | 0.2052 ns |  0.3071 ns |   8.243 ns | 0.0064 |      40 B |
-|     IReadOnlyListOnList0_Accelerated |   2.242 ns | 0.0195 ns |  0.0279 ns |   2.239 ns |      - |         - |
-|         IReadOnlyListOnList10_Normal |  49.844 ns | 0.1899 ns |  0.2600 ns |  49.808 ns | 0.0063 |      40 B |
-|    IReadOnlyListOnList10_Accelerated |  21.827 ns | 0.1025 ns |  0.1503 ns |  21.810 ns |      - |         - |
-|        IReadOnlyListOnList100_Normal | 439.944 ns | 1.9713 ns |  2.8895 ns | 439.524 ns | 0.0062 |      40 B |
-|   IReadOnlyListOnList100_Accelerated | 198.190 ns | 0.3359 ns |  0.4598 ns | 198.173 ns |      - |         - |
+|          IReadOnlyListOnList0_Normal |  11.504 ns | 0.0649 ns | 0.0951 ns | 0.0064 |      40 B |
+|     IReadOnlyListOnList0_Accelerated |   2.352 ns | 0.0180 ns | 0.0253 ns |      - |         - |
+|         IReadOnlyListOnList10_Normal |  72.025 ns | 0.4573 ns | 0.6559 ns | 0.0063 |      40 B |
+|    IReadOnlyListOnList10_Accelerated |  21.080 ns | 0.2111 ns | 0.3027 ns |      - |         - |
+|        IReadOnlyListOnList100_Normal | 509.947 ns | 2.3176 ns | 3.4688 ns | 0.0057 |      40 B |
+|   IReadOnlyListOnList100_Accelerated | 199.782 ns | 1.2465 ns | 1.7876 ns |      - |         - |
 
-|                  IDictOnDict0_Normal |  11.179 ns | 0.0475 ns |  0.0696 ns |  11.197 ns | 0.0076 |      48 B |
-|             IDictOnDict0_Accelerated |  10.591 ns | 0.0316 ns |  0.0473 ns |  10.591 ns |      - |         - |
-|                 IDictOnDict10_Normal |  55.168 ns | 0.6465 ns |  0.9063 ns |  54.906 ns | 0.0076 |      48 B |
-|            IDictOnDict10_Accelerated |  37.919 ns | 0.1078 ns |  0.1579 ns |  37.924 ns |      - |         - |
-|                IDictOnDict100_Normal | 456.278 ns | 2.0765 ns |  3.0437 ns | 456.889 ns | 0.0076 |      48 B |
-|           IDictOnDict100_Accelerated | 248.180 ns | 1.1518 ns |  1.6882 ns | 247.690 ns |      - |         - |
+|                  IDictOnDict0_Normal |  13.454 ns | 0.1009 ns | 0.1479 ns | 0.0076 |      48 B |
+|             IDictOnDict0_Accelerated |  10.511 ns | 0.0526 ns | 0.0771 ns |      - |         - |
+|                 IDictOnDict10_Normal |  77.683 ns | 0.4120 ns | 0.6039 ns | 0.0076 |      48 B |
+|            IDictOnDict10_Accelerated |  38.412 ns | 0.0925 ns | 0.1326 ns |      - |         - |
+|                IDictOnDict100_Normal | 540.484 ns | 2.3436 ns | 3.4352 ns | 0.0076 |      48 B |
+|           IDictOnDict100_Accelerated | 249.795 ns | 1.4224 ns | 2.1290 ns |      - |         - |
 
-|          IReadOnlyDictOnDict0_Normal |  11.317 ns | 0.1696 ns |  0.2433 ns |  11.200 ns | 0.0076 |      48 B |
-|     IReadOnlyDictOnDict0_Accelerated |  10.998 ns | 0.3312 ns |  0.4854 ns |  10.910 ns |      - |         - |
-|         IReadOnlyDictOnDict10_Normal |  55.157 ns | 0.4493 ns |  0.6585 ns |  55.085 ns | 0.0076 |      48 B |
-|    IReadOnlyDictOnDict10_Accelerated |  37.957 ns | 0.2014 ns |  0.2823 ns |  37.867 ns |      - |         - |
-|        IReadOnlyDictOnDict100_Normal | 456.584 ns | 2.9986 ns |  4.3953 ns | 454.774 ns | 0.0076 |      48 B |
-|   IReadOnlyDictOnDict100_Accelerated | 248.004 ns | 0.7440 ns |  1.0670 ns | 248.081 ns |      - |         - |
+|          IReadOnlyDictOnDict0_Normal |  13.530 ns | 0.0666 ns | 0.0933 ns | 0.0076 |      48 B |
+|     IReadOnlyDictOnDict0_Accelerated |  10.512 ns | 0.0649 ns | 0.0951 ns |      - |         - |
+|         IReadOnlyDictOnDict10_Normal |  77.828 ns | 0.5313 ns | 0.7619 ns | 0.0076 |      48 B |
+|    IReadOnlyDictOnDict10_Accelerated |  38.022 ns | 0.0928 ns | 0.1330 ns |      - |         - |
+|        IReadOnlyDictOnDict100_Normal | 555.660 ns | 2.3068 ns | 3.3813 ns | 0.0076 |      48 B |
+|   IReadOnlyDictOnDict100_Accelerated | 250.530 ns | 0.9358 ns | 1.3717 ns |      - |         - |
 
-|                ISetOnHashSet0_Normal |   7.287 ns | 0.0485 ns |  0.0663 ns |   7.272 ns | 0.0064 |      40 B |
-|           ISetOnHashSet0_Accelerated |   9.600 ns | 0.0706 ns |  0.0989 ns |   9.586 ns |      - |         - |
-|               ISetOnHashSet10_Normal |  47.307 ns | 0.2490 ns |  0.3728 ns |  47.201 ns | 0.0063 |      40 B |
-|          ISetOnHashSet10_Accelerated |  31.516 ns | 0.1497 ns |  0.2099 ns |  31.444 ns |      - |         - |
-|              ISetOnHashSet100_Normal | 461.619 ns | 1.7594 ns |  2.5233 ns | 461.005 ns | 0.0062 |      40 B |
-|         ISetOnHashSet100_Accelerated | 248.588 ns | 0.6216 ns |  0.8915 ns | 248.260 ns |      - |         - |
+|                ISetOnHashSet0_Normal |  10.897 ns | 0.1553 ns | 0.2228 ns | 0.0064 |      40 B |
+|           ISetOnHashSet0_Accelerated |   9.272 ns | 0.0442 ns | 0.0647 ns |      - |         - |
+|               ISetOnHashSet10_Normal |  68.202 ns | 0.3388 ns | 0.5071 ns | 0.0063 |      40 B |
+|          ISetOnHashSet10_Accelerated |  30.400 ns | 0.2178 ns | 0.3260 ns |      - |         - |
+|              ISetOnHashSet100_Normal | 561.097 ns | 1.4157 ns | 1.9847 ns | 0.0057 |      40 B |
+|         ISetOnHashSet100_Accelerated | 267.614 ns | 2.4228 ns | 3.5513 ns |      - |         - |
 
-|        IReadOnlySetOnHashSet0_Normal |   7.319 ns | 0.0443 ns |  0.0663 ns |   7.315 ns | 0.0064 |      40 B |
-|   IReadOnlySetOnHashSet0_Accelerated |   9.450 ns | 0.0370 ns |  0.0531 ns |   9.439 ns |      - |         - |
-|       IReadOnlySetOnHashSet10_Normal |  46.799 ns | 0.1203 ns |  0.1647 ns |  46.774 ns | 0.0063 |      40 B |
-|  IReadOnlySetOnHashSet10_Accelerated |  30.685 ns | 0.1540 ns |  0.2305 ns |  30.614 ns |      - |         - |
-|      IReadOnlySetOnHashSet100_Normal | 460.292 ns | 1.7197 ns |  2.5207 ns | 459.824 ns | 0.0062 |      40 B |
-| IReadOnlySetOnHashSet100_Accelerated | 256.467 ns | 1.3636 ns |  1.9556 ns | 256.575 ns |      - |         - |
+|        IReadOnlySetOnHashSet0_Normal |  10.778 ns | 0.0842 ns | 0.1234 ns | 0.0064 |      40 B |
+|   IReadOnlySetOnHashSet0_Accelerated |   9.490 ns | 0.0340 ns | 0.0466 ns |      - |         - |
+|       IReadOnlySetOnHashSet10_Normal |  68.022 ns | 0.7982 ns | 1.1448 ns | 0.0063 |      40 B |
+|  IReadOnlySetOnHashSet10_Accelerated |  31.568 ns | 0.4505 ns | 0.6603 ns |      - |         - |
+|      IReadOnlySetOnHashSet100_Normal | 564.348 ns | 4.3112 ns | 6.3193 ns | 0.0057 |      40 B |
+| IReadOnlySetOnHashSet100_Accelerated | 287.325 ns | 1.3242 ns | 1.9410 ns |      - |         - |
 ```
 
 ## How This Works

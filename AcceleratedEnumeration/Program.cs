@@ -9,47 +9,57 @@ namespace Bench;
 [MemoryDiagnoser]
 public class Program
 {
-    private static readonly IEnumerable<int> _ienumOnStack0 = new Stack<int>();
-    private static readonly IEnumerable<int> _ienumOnStack10 = new Stack<int>(new int[10]);
-    private static readonly IEnumerable<int> _ienumOnStack100 = new Stack<int>(new int[100]);
+    private IEnumerable<int> _ienumOnStack0 = new Stack<int>();
+    private IEnumerable<int> _ienumOnStack10 = new Stack<int>(new int[10]);
+    private IEnumerable<int> _ienumOnStack100 = new Stack<int>(new int[100]);
 
-    private static readonly IEnumerable<int> _ienumOnArray0 = new int[0];
-    private static readonly IEnumerable<int> _ienumOnArray10 = new int[10];
-    private static readonly IEnumerable<int> _ienumOnArray100 = new int[100];
+    private IEnumerable<int> _ienumOnArray0 = new int[0];
+    private IEnumerable<int> _ienumOnArray10 = new int[10];
+    private IEnumerable<int> _ienumOnArray100 = new int[100];
 
-    private static readonly IEnumerable<int> _ienumOnList0 = new List<int>(new int[0]);
-    private static readonly IEnumerable<int> _ienumOnList10 = new List<int>(new int[10]);
-    private static readonly IEnumerable<int> _ienumOnList100 = new List<int>(new int[100]);
+    private IEnumerable<int> _ienumOnList0 = new List<int>(new int[0]);
+    private IEnumerable<int> _ienumOnList10 = new List<int>(new int[10]);
+    private IEnumerable<int> _ienumOnList100 = new List<int>(new int[100]);
 
-    private static readonly IList<int> _ilistOnArray0 = new int[0];
-    private static readonly IList<int> _ilistOnArray10 = new int[10];
-    private static readonly IList<int> _ilistOnArray100 = new int[100];
+    private IList<int> _ilistOnArray0 = new int[0];
+    private IList<int> _ilistOnArray10 = new int[10];
+    private IList<int> _ilistOnArray100 = new int[100];
 
-    private static readonly IList<int> _ilistOnList0 = new List<int>(new int[0]);
-    private static readonly IList<int> _ilistOnList10 = new List<int>(new int[10]);
-    private static readonly IList<int> _ilistOnList100 = new List<int>(new int[100]);
+    private IList<int> _ilistOnList0 = new List<int>(new int[0]);
+    private IList<int> _ilistOnList10 = new List<int>(new int[10]);
+    private IList<int> _ilistOnList100 = new List<int>(new int[100]);
 
-    private static readonly IReadOnlyList<int> _ireadonlylistOnList0 = new List<int>(new int[0]);
-    private static readonly IReadOnlyList<int> _ireadonlylistOnList10 = new List<int>(new int[10]);
-    private static readonly IReadOnlyList<int> _ireadonlylistOnList100 = new List<int>(new int[100]);
+    private IReadOnlyList<int> _ireadonlylistOnList0 = new List<int>(new int[0]);
+    private IReadOnlyList<int> _ireadonlylistOnList10 = new List<int>(new int[10]);
+    private IReadOnlyList<int> _ireadonlylistOnList100 = new List<int>(new int[100]);
 
-    private static readonly IDictionary<int, int> _idictOnDict0 = new Dictionary<int, int>();
-    private static readonly IDictionary<int, int> _idictOnDict10 = new Dictionary<int, int>();
-    private static readonly IDictionary<int, int> _idictOnDict100 = new Dictionary<int, int>();
+    private IDictionary<int, int> _idictOnDict0 = new Dictionary<int, int>();
+    private IDictionary<int, int> _idictOnDict10 = new Dictionary<int, int>();
+    private IDictionary<int, int> _idictOnDict100 = new Dictionary<int, int>();
 
-    private static readonly IReadOnlyDictionary<int, int> _ireadonlydictOnDict0 = new Dictionary<int, int>();
-    private static readonly IReadOnlyDictionary<int, int> _ireadonlydictOnDict10;
-    private static readonly IReadOnlyDictionary<int, int> _ireadonlydictOnDict100;
+    private IReadOnlyDictionary<int, int> _ireadonlydictOnDict0 = new Dictionary<int, int>();
+    private IReadOnlyDictionary<int, int> _ireadonlydictOnDict10;
+    private IReadOnlyDictionary<int, int> _ireadonlydictOnDict100;
 
-    private static readonly ISet<int> _isetOnHashSet0 = new HashSet<int>();
-    private static readonly ISet<int> _isetOnHashSet10 = new HashSet<int>(Enumerable.Range(0, 9));
-    private static readonly ISet<int> _isetOnHashSet100 = new HashSet<int>(Enumerable.Range(0, 99));
+    private ISet<int> _isetOnHashSet0 = new HashSet<int>();
+    private ISet<int> _isetOnHashSet10 = new HashSet<int>(Enumerable.Range(0, 9));
+    private ISet<int> _isetOnHashSet100 = new HashSet<int>(Enumerable.Range(0, 99));
 
-    private static readonly IReadOnlySet<int> _ireadonlysetOnHashSet0 = new HashSet<int>();
-    private static readonly IReadOnlySet<int> _ireadonlysetOnHashSet10 = new HashSet<int>(Enumerable.Range(0, 9));
-    private static readonly IReadOnlySet<int> _ireadonlysetOnHashSet100 = new HashSet<int>(Enumerable.Range(0, 99));
+    private IReadOnlySet<int> _ireadonlysetOnHashSet0 = new HashSet<int>();
+    private IReadOnlySet<int> _ireadonlysetOnHashSet10 = new HashSet<int>(Enumerable.Range(0, 9));
+    private IReadOnlySet<int> _ireadonlysetOnHashSet100 = new HashSet<int>(Enumerable.Range(0, 99));
 
-    static Program()
+    public static void Main(string[] args)
+    {
+        var dontRequireSlnToRunBenchmarks = ManualConfig
+            .Create(DefaultConfig.Instance)
+            .AddJob(Job.MediumRun.WithToolchain(InProcessEmitToolchain.Instance));
+
+        BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run(args, dontRequireSlnToRunBenchmarks);
+    }
+
+    [GlobalSetup]
+    public void Setup()
     {
         for (int i = 0; i < 10; i++)
         {
@@ -63,15 +73,6 @@ public class Program
 
         _ireadonlydictOnDict10 = (Dictionary<int, int>)_idictOnDict10;
         _ireadonlydictOnDict100 = (Dictionary<int, int>)_idictOnDict100;
-    }
-
-    public static void Main(string[] args)
-    {
-        var dontRequireSlnToRunBenchmarks = ManualConfig
-            .Create(DefaultConfig.Instance)
-            .AddJob(Job.MediumRun.WithToolchain(InProcessEmitToolchain.Instance));
-
-        BenchmarkSwitcher.FromAssembly(typeof(Program).Assembly).Run(args, dontRequireSlnToRunBenchmarks);
     }
 
     [Benchmark]
